@@ -6,8 +6,8 @@ authors = [
     {name = "Jeff Stock",email = "jantonstock@gmail.com"}
 ]
 
-repository = ""
-keywords = []
+repository = "https://github.com/janton42/stock_utils"
+keywords = ["utilities", "algorithms", "math", "practice"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
