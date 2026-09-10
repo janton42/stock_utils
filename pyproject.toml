@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "stock_utils"
+version = "0.1.0"
+description = "Interactive examples of algorithms, mathematical concepts and utility functions."
+authors = [
+    {name = "Jeff Stock",email = "jantonstock@gmail.com"}
+]
+
+repository = ""
+keywords = []
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.13",
+]
+license = "MIT"
+readme = "README.md"
+packages = [
+    {include="algo", from="src"},
+    {include="math", from="src"},
+    {include="stock_utils", from = "src" },
+    {include="utils", from="src"},
+]
+include = [
+  "src/disaster_factor/static/**"
+]
+[tool.poetry.scripts]
+stock-utils = "stock_utils.cli:main"
+
+requires-python = ">=3.13"
+dependencies = [
+    "pytest (>=9.0.3,<10.0.0)",
+    "rich (>=15.0.0,<16.0.0)",
+    "playsound3 (>=3.3.1,<4.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

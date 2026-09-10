@@ -1,0 +1,28 @@
+Growth
+Linear: x
+- Could be cx, z+x or any other arbitrary arithmetic function preformed on x, and it will still be linear
+
+Polynomial: x ^ y
+- x raised to some power of x
+
+Exponential: 2 ^ x, e ^ x, 10 ^ x
+- Some base raised to the power of x
+
+Factorial: x!, x ^ x
+- Very fast growth rate
+
+
+How to use logarithms
+
+I have some quantity (y) when I have the input (x), but I don't know the function that gets x to y.
+
+I think it might be this:
+y = Ax^n
+
+Graphing this function would yield a picture that would make it impossible to detirmine if n was 1.5 or 2. Taking the log of this function will help.
+
+* when multiplying, as in the (Ax) of our function, add the logs
+
+log y = log A + log x ^ n which is the same as log y = log A + n log x
+
+
