@@ -1,9 +1,9 @@
 [tool.poetry]
 name = "stock_utils"
-version = "0.1.0"
+version = "0.1.3"
 description = "Interactive examples of algorithms, mathematical concepts and utility functions."
 authors = [
-    {name = "Jeff Stock",email = "jantonstock@gmail.com"}
+    "Jeff Stock <jantonstock@gmail.com>",
 ]
 
 repository = "https://github.com/janton42/stock_utils"
@@ -28,13 +28,20 @@ include = [
 [tool.poetry.scripts]
 stock-utils = "stock_utils.cli:main"
 
-requires-python = ">=3.13"
-dependencies = [
-    "pytest (>=9.0.3,<10.0.0)",
-    "rich (>=15.0.0,<16.0.0)",
-    "playsound3 (>=3.3.1,<4.0.0)"
-]
+[tool.poetry.dependencies]
+python = ">=3.10"
+rich = ">=15.0.0,<16.0.0"
+playsound3 = ">=3.3.1,<4.0.0"
+python-dotenv = "^1.2.1"
+mkdocs-material = "^9.7.7"
 
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=9.0.3,<10.0.0"
+pydocstyle = "^6.3.0"
+mkdocs = "^1.6.1"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

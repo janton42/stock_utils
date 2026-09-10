@@ -7,7 +7,7 @@ from . import __version__
 from .core import Orchestrator
 
 def _build_parser() -> argparse.ArgumentParser:
-    prog = importlib.metadata.metadata("practice")["Name"]
+    prog = importlib.metadata.metadata("stock_utils")["Name"]
     parser = argparse.ArgumentParser(prog=prog, description=(__doc__ or ''))
     parser.add_argument(
         '--version',

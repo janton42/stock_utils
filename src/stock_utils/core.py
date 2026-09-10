@@ -53,7 +53,7 @@ class Orchestrator:
         sound = None
         if not silent:
             src_dir = Path(__file__).resolve().parent.parent
-            audio = src_dir / 'practice/static/test_audio.mp3'
+            audio = src_dir / 'stock_utils/static/test_audio.mp3'
             sound = playsound(audio, block=False)
         status = 1
         while status == 1:
