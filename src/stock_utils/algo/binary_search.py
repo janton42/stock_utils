@@ -1,5 +1,17 @@
 
+"""Binary search implementation for sorted collections."""
+
+
 def binary_search(target, space):
+    """Return whether a target value exists in a sorted sequence.
+
+    Args:
+        target: Value to look for in the sequence.
+        space: Sorted sequence of comparable values.
+
+    Returns:
+        True if the target is present; otherwise False.
+    """
     left = 0
     right = len(space) - 1
 
@@ -10,7 +22,7 @@ def binary_search(target, space):
         elif space[mid] < target:
             left = mid + 1
         elif space[mid] > target:
-            right = mid -1 
+            right = mid - 1
     return False
 
 if __name__ == '__main__':

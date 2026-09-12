@@ -1,4 +1,16 @@
+"""Longest palindromic substring search implementation."""
+
+
 def find_longest_palindrome(s):
+    """Return the longest palindromic substring within a string.
+
+    Args:
+        s: String to inspect.
+
+    Returns:
+        The longest palindromic substring found in ``s``. If none exists, an
+        empty string is returned.
+    """
     longest = ''
     len_long = 0
     for i in range(len(s)):

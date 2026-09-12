@@ -1,4 +1,15 @@
+"""Binomial coefficient calculations for choosing k items from n."""
+
+
 def factorial(n):
+    """Return the factorial of a non-negative integer.
+
+    Args:
+        n: Integer whose factorial is to be computed.
+
+    Returns:
+        The product of all integers from 1 through ``n``.
+    """
     if n == 1:
         return n
     else:
@@ -6,10 +17,18 @@ def factorial(n):
 
 
 def main(n, k):
-    # The binomial coefficient can also be called the "n choose k" formula
-    # n is the total number of available things
-    # k is the number of items to choose out of n
-    # example: in a 5-card poker game with a standard deck, k = 5, n = 52
+    """Calculate the binomial coefficient for choosing ``k`` items from ``n``.
+
+    The result is equivalent to the "n choose k" formula. For example, in a
+    5-card poker game with a standard deck, ``n = 52`` and ``k = 5``.
+
+    Args:
+        n: Total number of items available.
+        k: Number of items to choose.
+
+    Returns:
+        The value of ``n choose k``.
+    """
     a = factorial(n)
     b = factorial(k)
     c = factorial(n-k)

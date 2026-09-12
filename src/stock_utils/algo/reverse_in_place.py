@@ -1,4 +1,15 @@
+"""In-place list reversal utility."""
+
+
 def reverse_in_place(arr):
+    """Reverse a list in place.
+
+    Args:
+        arr: List to reverse.
+
+    Returns:
+        The reversed list.
+    """
     left = 0
     right = len(arr) - 1
 

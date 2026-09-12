@@ -1,4 +1,17 @@
+"""Lexicographical string comparison utilities."""
+
+
 def compare_strings(s1: str, s2: str) -> int:
+    """Compare two strings lexicographically.
+
+    Args:
+        s1: First string to compare.
+        s2: Second string to compare.
+
+    Returns:
+        -1 if ``s1`` sorts before ``s2``, 0 if they are equal, and 1 if ``s1``
+        sorts after ``s2``.
+    """
     # return -1 if s1 < s2, 0 if s1 == s2, 1 if s1 > s2
     if s1 == s2:
         return 0

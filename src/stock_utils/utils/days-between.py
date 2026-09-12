@@ -1,6 +1,18 @@
+"""Date difference utilities for computing elapsed days."""
+
 from datetime import date
 
+
 def days_between(start, end):
+    """Return the number of days between two dates.
+
+    Args:
+        start: Start date object with ``year``, ``month``, and ``day`` fields.
+        end: End date object with ``year``, ``month``, and ``day`` fields.
+
+    Returns:
+        The integer number of days from ``start`` to ``end``.
+    """
     d0 = date(start.year, start.month, start.day)
     d1 = date(end.year, end.month, end.day)
     delta = d1 - d0
@@ -8,8 +20,14 @@ def days_between(start, end):
 
 
 class DateObject:
-    
+    """Small date container used by the day-difference utility."""
+
     def __init__(self, **kwargs):
+        """Initialize a date object from keyword arguments.
+
+        Args:
+            **kwargs: Must include ``year``, ``month``, and ``day``.
+        """
         self.year = kwargs['year']
         self.month = kwargs['month']
         self.day = kwargs['day']

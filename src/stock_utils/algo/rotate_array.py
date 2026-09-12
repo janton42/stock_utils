@@ -1,4 +1,17 @@
+"""Array rotation utilities."""
+
+
 def rotate_array(nums: list[int], k: int) -> list[int]:
+    """Rotate a list to the right by ``k`` positions.
+
+    Args:
+        nums: Sequence of integers to rotate.
+        k: Number of positions to rotate. Values larger than the list length are
+            normalized modulo the list size.
+
+    Returns:
+        A new list with the elements rotated to the right by ``k`` positions.
+    """
     if not nums or k == 0:
         return nums[:]
 

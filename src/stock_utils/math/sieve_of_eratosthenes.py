@@ -1,4 +1,16 @@
+"""Sieve of Eratosthenes prime generation utilities."""
+
+
 def prime_finder(upper_bound):
+    """Return all prime numbers up to ``upper_bound``.
+
+    Args:
+        upper_bound: Maximum value to consider.
+
+    Returns:
+        A set containing each prime number less than or equal to
+        ``upper_bound``.
+    """
     primes = set()
     composites = set()
     n = 2
@@ -15,7 +27,17 @@ def prime_finder(upper_bound):
     
     return primes
 
+
 def sieve_of_eratosthenes(upper_bound):
+    """Build a visual list of numbers and their prime/non-prime status.
+
+    Args:
+        upper_bound: Largest value to include in the generated matrix.
+
+    Returns:
+        A dictionary containing both the full range and a filtered view showing
+        only prime values.
+    """
     full_list = list()
     filtered_list = list()
     if upper_bound % 10 == 0:
@@ -45,6 +67,7 @@ def sieve_of_eratosthenes(upper_bound):
             'filtered_list': filtered_list,
             }
     return output
+
 
 if __name__ == '__main__':
     limit = int(input('Enter an upper boundary: '))

@@ -1,4 +1,17 @@
+"""Heron's formula for triangle area calculation."""
+
+
 def main(a:int, b:int, c:int)->int:
+    """Return the area of a triangle using Heron's formula.
+
+    Args:
+        a: Length of the first side.
+        b: Length of the second side.
+        c: Length of the third side.
+
+    Returns:
+        The area of the triangle.
+    """
     s = (a + b + c)/2
     area = (s * ((s-a)*(s-b)*(s-c))) ** 0.5
     return area

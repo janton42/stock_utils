@@ -1,7 +1,15 @@
+"""Typewriter-style terminal output helper."""
+
 import time
 import random
 
+
 def typewriter_print(text: str):
+    """Print text as if it were being typed one character at a time.
+
+    Args:
+        text: Message to display with a brief random delay between characters.
+    """
     for char in text:
         delay = random.uniform(0.09, 0.13)
         print(char, end='', flush=True)

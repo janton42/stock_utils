@@ -1,18 +1,37 @@
+"""Dijkstra's shortest path algorithm implementation."""
+
 import itertools
 from heapq import heappush, heappop
 
 # Priority queue implementation
 class PriorityQueue:
+    """Priority queue used by Dijkstra's shortest-path algorithm.
+
+    Entries are stored as ``[priority, count, task]`` tuples so tasks can be
+    compared by priority while preserving insertion order for ties.
+    """
+
     def __init__(self):
+        """Initialize the priority queue."""
         self.pq = []				# List of entries arranged in a heap
         self.entry_finder = {}			# mapping of tassk to entries
         # REMOVED = '<removed-task>'		# placeholder for a removed task
         self.counter = itertools.count()	# unique sequence count
 
     def __len__(self):
+        """Return the number of queued tasks."""
         return len(self.pq)
 
     def add_task(self, priority, task):
+        """Add a task to the queue or update its priority when present.
+
+        Args:
+            priority: Relative priority for the task.
+            task: Task identifier to add or update.
+
+        Returns:
+            The queue instance for chaining convenience.
+        """
         if task in self.entry_finder:
             self.update_priority(priority, task)
             return self
@@ -22,11 +41,25 @@ class PriorityQueue:
         heappush(self.pq, entry)
 
     def update_priority(self, priority, task):
+        """Update the priority for an existing queued task.
+
+        Args:
+            priority: New priority value.
+            task: Task identifier to update.
+        """
         entry = self.entry_finder[task]
         count = next(self.counter)
         entry[0], entry[1] = priority, count
 
     def pop_task(self):
+        """Remove and return the next task with the lowest priority.
+
+        Returns:
+            A tuple of ``(priority, task)`` for the next task.
+
+        Raises:
+            KeyError: If the queue is empty.
+        """
         while self.pq:
             priority, count, task = heappop(self.pq)
             del self.entry_finder[task]
@@ -35,19 +68,54 @@ class PriorityQueue:
 
 
 class Graph:
+    """Graph container backed by an adjacency list."""
+
     def __init__(self, adjacency_list):
+        """Initialize the graph with an adjacency list.
+
+        Args:
+            adjacency_list: Mapping of vertices to their outgoing edges.
+        """
         self.adjacency_list = adjacency_list
 
+
 class Vertex:
+    """Graph vertex containing a value."""
+
     def __init__(self, value):
+        """Initialize a vertex.
+
+        Args:
+            value: Data stored on the vertex.
+        """
         self.value = value
 
+
 class Edge:
+    """Weighted edge connecting a vertex to another vertex."""
+
     def __init__(self, distance, vertex):
+        """Initialize an edge.
+
+        Args:
+            distance: Cost of traversing the edge.
+            vertex: Destination vertex reached by the edge.
+        """
         self.distance = distance
         self.vertex = vertex
 
+
 def dijkstra(graph, start, end):
+    """Find and print the shortest path from ``start`` to ``end``.
+
+    Args:
+        graph: Graph whose adjacency list contains weighted ``Edge`` objects.
+        start: Starting vertex.
+        end: Destination vertex.
+
+    Returns:
+        None. The shortest distance and path are printed to stdout.
+    """
     previous = {v: None for v in graph.adjacency_list.keys()}
     visited = {v: False for v in graph.adjacency_list.keys()}
     distances = {v: float('inf') for v in graph.adjacency_list.keys()}

@@ -1,3 +1,5 @@
+"""Command-line interface for stock_utils."""
+
 import argparse
 import importlib.metadata
 import sys
@@ -6,7 +8,13 @@ from pathlib import Path
 from . import __version__
 from .core import Orchestrator
 
+
 def _build_parser() -> argparse.ArgumentParser:
+    """Build the command-line parser for the stock_utils CLI.
+
+    Returns:
+        Configured ``ArgumentParser`` instance with version and silent options.
+    """
     prog = importlib.metadata.metadata("stock_utils")["Name"]
     parser = argparse.ArgumentParser(prog=prog, description=(__doc__ or ''))
     parser.add_argument(
@@ -24,7 +32,17 @@ def _build_parser() -> argparse.ArgumentParser:
 
     return parser
 
+
 def main(argv: list[str]|None=None)->int:
+    """Run the stock_utils command-line entry point.
+
+    Args:
+        argv: Optional list of command-line arguments to parse. If omitted,
+            ``sys.argv[1:]`` is used.
+
+    Returns:
+        Exit status code for the CLI.
+    """
     argv=sys.argv[1:] if argv is None else argv
     parser = _build_parser()
 

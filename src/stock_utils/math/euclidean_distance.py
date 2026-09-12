@@ -1,7 +1,18 @@
+"""Euclidean distance helper for geometric calculations."""
+
 from stock_utils import math as m
 
 
 def calculate_euclidean_distance(p: tuple, q: tuple):
+    """Return the Euclidean distance between two 2D points.
+
+    Args:
+        p: First point as a ``(x, y)`` tuple.
+        q: Second point as a ``(x, y)`` tuple.
+
+    Returns:
+        The straight-line distance between ``p`` and ``q``.
+    """
     return abs(m.sqrt(((p[0] - q[0])**2) + ((p[1]-q[1])**2)))
 
 cities = [

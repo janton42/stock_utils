@@ -1,0 +1,13 @@
+site_name: Stock Utils
+nav:
+  - Home: index.md
+theme:
+  name: readthedocs
+plugins:
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: google
+
+dev_addr: '127.0.0.1:8001'

@@ -1,4 +1,16 @@
+"""Probability utilities for the Camel Up style game logic."""
+
+
 def calculate_prob(x, r):
+    """Calculate the probability of a successful outcome in the game.
+
+    Args:
+        x: Number of positive outcomes to consider.
+        r: Current round number.
+
+    Returns:
+        The calculated probability of the event occurring.
+    """
     n = 7 - r
     p_die_chosen = 1/n
     p_dice_face = 0.333
@@ -9,8 +21,18 @@ def calculate_prob(x, r):
         x -= 1
     return prob
 
+
 def calculate_odds(p):
+    """Convert a probability into odds.
+
+    Args:
+        p: Probability value between 0 and 1.
+
+    Returns:
+        The odds ratio as ``p / (1 - p)``.
+    """
     return p/(1-p)
+
 
 if __name__ == '__main__':
     x = int(input('Enter the total number of positive outcomes:  '))

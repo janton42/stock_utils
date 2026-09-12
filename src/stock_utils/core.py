@@ -1,3 +1,5 @@
+"""Core orchestration logic for launching project scripts."""
+
 import subprocess
 from pathlib import Path
 from stock_utils.utils import console
@@ -8,6 +10,12 @@ from playsound3 import playsound
 
 
 def _discover_scripts():
+    """Discover runnable Python scripts under the project modules.
+
+    Returns:
+        A dictionary keyed by module name containing sorted script names such as
+        ``"algo.binary_search"``.
+    """
     src_dir = Path(__file__).resolve().parent.parent
     modules = ("algo", "math", "utils")
     discovered = {}
@@ -28,6 +36,14 @@ def _discover_scripts():
 
 
 def _chooser(options) -> int:
+    """Display a selection table and return the user's choice index.
+
+    Args:
+        options: Sequence of labels to show in the chooser.
+
+    Returns:
+        The selected option number, with ``0`` reserved for the exit choice.
+    """
     table = Table(title="Options")
     table.add_column('#', justify='center', style='cyan', no_wrap=True)
     table.add_column('Title', justify='center', style='cyan')
@@ -45,11 +61,26 @@ def _chooser(options) -> int:
 
 
 class Orchestrator:
+    """Menu-driven orchestrator for launching project scripts."""
+
     def __init__(self, name):
+        """Initialize the orchestrator with a display name.
+
+        Args:
+            name: Human-readable name for the orchestrator instance.
+        """
         self.name = name
         self.scripts = _discover_scripts()
 
     def menu_loop(self, silent=False):
+        """Run the primary interactive menu until the user exits.
+
+        Args:
+            silent: If ``True``, suppress the startup audio.
+
+        Returns:
+            The exit status code chosen by the user.
+        """
         sound = None
         if not silent:
             src_dir = Path(__file__).resolve().parent.parent
