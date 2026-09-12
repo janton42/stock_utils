@@ -17,11 +17,9 @@ classifiers = [
 license = "MIT"
 readme = "README.md"
 packages = [
-    {include="algo", from="src"},
-    {include="math", from="src"},
     {include="stock_utils", from = "src" },
-    {include="utils", from="src"},
 ]
+
 include = [
   "src/disaster_factor/static/**"
 ]
