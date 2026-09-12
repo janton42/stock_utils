@@ -2,7 +2,7 @@
 
 import subprocess
 from pathlib import Path
-from stock_utils.utils import console
+from stock_utils.utils.console import console
 from rich.prompt import Prompt, IntPrompt
 from rich.table import Table
 from rich.align import Align
@@ -16,7 +16,7 @@ def _discover_scripts():
         A dictionary keyed by module name containing sorted script names such as
         ``"algo.binary_search"``.
     """
-    src_dir = Path(__file__).resolve().parent.parent
+    src_dir = Path(__file__).resolve().parent
     modules = ("algo", "math", "utils")
     discovered = {}
 
@@ -102,7 +102,7 @@ class Orchestrator:
                 else:
                     s = self.scripts[mod_options[mod_choice]][script_choice]
                     module, stem = s.split(".")
-                    script_path = Path(__file__).resolve().parent.parent / module / f"{stem}.py"
+                    script_path = Path(__file__).resolve().parent / module / f"{stem}.py"
                     subprocess.run(["python", str(script_path)])
 
         if sound:
