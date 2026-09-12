@@ -1,7 +1,7 @@
 import time
 import random
 
-def typwriter_print(text: str):
+def typewriter_print(text: str):
     for char in text:
         delay = random.uniform(0.09, 0.13)
         print(char, end='', flush=True)
