@@ -1,6 +1,6 @@
 import random
 
-from utils.console import console
+from stock_utils.utils import console
 
 class SquareTester:
     def __init__(self):

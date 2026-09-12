@@ -1,6 +1,6 @@
 import subprocess
 from pathlib import Path
-from utils.console import console
+from stock_utils.utils import console
 from rich.prompt import Prompt, IntPrompt
 from rich.table import Table
 from rich.align import Align

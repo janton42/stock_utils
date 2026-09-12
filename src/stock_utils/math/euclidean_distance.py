@@ -1,4 +1,5 @@
-import math as m
+from stock_utils import math as m
+
 
 def calculate_euclidean_distance(p: tuple, q: tuple):
     return abs(m.sqrt(((p[0] - q[0])**2) + ((p[1]-q[1])**2)))

@@ -1,4 +1,4 @@
-from algo.binary_search import binary_search
+from stock_utils.algo import binary_search
 
 def test_find_item_in_middle():
     assert binary_search(5, [1, 3, 5, 7, 9]) == True

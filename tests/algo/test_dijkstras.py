@@ -1,4 +1,4 @@
-from algo.dijkstras_algo import dijkstra, Graph, Vertex, Edge
+from stock_utils.algo import dijkstra, Graph, Vertex, Edge
 
 
 def make_simple_graph():

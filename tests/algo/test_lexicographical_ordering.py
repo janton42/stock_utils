@@ -1,4 +1,4 @@
-from algo.lexicographical_ordering import compare_strings
+from stock_utils.algo.lexicographical_ordering import compare_strings
 
 
 def test_equal_strings():
